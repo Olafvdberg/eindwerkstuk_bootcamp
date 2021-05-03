@@ -4,13 +4,13 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-@Entity
-@Table (name = "reperations")
+//@Entity
+//@Table (name = "reperations")
 public class Reperation {
 
-    @Column(length = 80)
-    private String reperation_date;
+    //@Column(length = 80)
+    //private String reperation_date;
 
-    @Column(length = 80)
-    private String to_do_reperation;
+    //@Column(length = 80)
+    //private String to_do_reperation;
 }

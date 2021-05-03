@@ -23,7 +23,7 @@ public class CustomerController {
     }
 
     @PostMapping(value = "/customer")
-    public ResponseEntity<Object> addStudent(@RequestBody Customer customer) {
+    public ResponseEntity<Object> addCustomer(@RequestBody Customer customer) {
 
         long newId = customerService.addCustomer(customer);
 

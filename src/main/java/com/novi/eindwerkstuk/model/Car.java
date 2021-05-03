@@ -1,13 +1,15 @@
 package com.novi.eindwerkstuk.model;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "cars")
 public class Car {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long car_id;
 
     @Column(length = 80)
     private String brand;
@@ -22,6 +24,15 @@ public class Car {
     private String car_paper;
 
     //getters and setters
+
+
+    public long getCar_id() {
+        return car_id;
+    }
+
+    public void setCar_id(long car_id) {
+        this.car_id = car_id;
+    }
 
     public String getBrand() {
         return brand;
