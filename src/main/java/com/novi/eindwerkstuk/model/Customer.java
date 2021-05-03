@@ -1,12 +1,14 @@
 package com.novi.eindwerkstuk.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "customers")
 public class Customer {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
 
     @Column(length = 80, nullable = false)
     private String voornaam;
@@ -27,7 +29,7 @@ public class Customer {
     public Customer() {
     }
 
-    public Customer(String voornaam, String achternaam, String emailadres, String adres, String telefoonnummer) {
+    public Customer(long id, String voornaam, String achternaam, String emailadres, String adres, String telefoonnummer) {
         this.voornaam = voornaam;
         this.achternaam = achternaam;
         this.emailadres = emailadres;
@@ -36,6 +38,14 @@ public class Customer {
     }
 
     // getters and setters
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public String getVoornaam() {
         return voornaam;
