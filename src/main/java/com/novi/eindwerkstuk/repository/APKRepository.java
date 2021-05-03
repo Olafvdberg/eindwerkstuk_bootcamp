@@ -1,4 +1,7 @@
 package com.novi.eindwerkstuk.repository;
 
-public interface APKRepository {
+import com.novi.eindwerkstuk.model.APK;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface APKRepository extends JpaRepository<APK, Long> {
 }

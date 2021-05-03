@@ -1,4 +1,7 @@
 package com.novi.eindwerkstuk.repository;
 
-public interface ReperationRepository {
+import com.novi.eindwerkstuk.model.Reperation;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ReperationRepository extends JpaRepository<Reperation, Long> {
 }
