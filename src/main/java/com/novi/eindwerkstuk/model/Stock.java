@@ -1,6 +1,9 @@
 package com.novi.eindwerkstuk.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table (name = "stock")
@@ -14,10 +17,14 @@ public class Stock {
     private String part_name_stock;
 
     @Column(length = 80)
-    private String part_price_stock;
+    private float part_price_stock;
 
     @Column(length = 80)
     private int amount_in_stock;
+
+    @OneToMany(mappedBy = "stock")
+    @JsonIgnoreProperties("stock")
+    List<PartStock> part_stock;
 
     //getters and setters
 
@@ -37,11 +44,11 @@ public class Stock {
         this.part_name_stock = part_name_stock;
     }
 
-    public String getPart_price_stock() {
+    public float getPart_price_stock() {
         return part_price_stock;
     }
 
-    public void setPart_price_stock(String part_price_stock) {
+    public void setPart_price_stock(float part_price_stock) {
         this.part_price_stock = part_price_stock;
     }
 
@@ -51,5 +58,13 @@ public class Stock {
 
     public void setAmount_in_stock(int amount_in_stock) {
         this.amount_in_stock = amount_in_stock;
+    }
+
+    public List<PartStock> getPart_stock() {
+        return part_stock;
+    }
+
+    public void setPart_stock(List<PartStock> part_stock) {
+        this.part_stock = part_stock;
     }
 }

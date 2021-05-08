@@ -1,6 +1,9 @@
 package com.novi.eindwerkstuk.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table (name = "reperations")
@@ -15,6 +18,18 @@ public class Reperation {
 
     @Column(length = 80)
     private String to_do_reperation;
+
+    @OneToMany(mappedBy = "reperation")
+    @JsonIgnoreProperties("reperation")
+    List<ReperationAPK> reperation_apk;
+
+    @OneToMany(mappedBy = "reperation")
+    @JsonIgnoreProperties("reperation")
+    List<ReperationPart> reperation_part;
+
+    @OneToMany(mappedBy = "reperation")
+    @JsonIgnoreProperties("reperation")
+    List<ReperationAction> reperation_action;
 
     //getters and setters
 
@@ -40,5 +55,29 @@ public class Reperation {
 
     public void setTo_do_reperation(String to_do_reperation) {
         this.to_do_reperation = to_do_reperation;
+    }
+
+    public List<ReperationAPK> getReperation_apk() {
+        return reperation_apk;
+    }
+
+    public void setReperation_apk(List<ReperationAPK> apk_reperation) {
+        this.reperation_apk = apk_reperation;
+    }
+
+    public List<ReperationPart> getReperation_part() {
+        return reperation_part;
+    }
+
+    public void setReperation_part(List<ReperationPart> reperation_part) {
+        this.reperation_part = reperation_part;
+    }
+
+    public List<ReperationAction> getReperation_action() {
+        return reperation_action;
+    }
+
+    public void setReperation_action(List<ReperationAction> reperation_action) {
+        this.reperation_action = reperation_action;
     }
 }

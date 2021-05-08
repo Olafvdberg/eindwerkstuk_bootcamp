@@ -1,6 +1,9 @@
 package com.novi.eindwerkstuk.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "APK")
@@ -19,9 +22,19 @@ public class APK {
     @Column(length = 80)
     private String found_errors;
 
+    @OneToMany(mappedBy = "apk")
+    @JsonIgnoreProperties("apk")
+    List<CarAPK> car_apk;
+
+    @OneToMany(mappedBy = "apk")
+    @JsonIgnoreProperties("apk")
+    List<ReperationAPK> reperation_apk;
+
+    @OneToMany(mappedBy = "apk")
+    @JsonIgnoreProperties("apk")
+    List<APKMechanic> apk_mechanic;
+
     //getters and setters
-
-
     public long getApk_id() {
         return apk_id;
     }
@@ -52,5 +65,29 @@ public class APK {
 
     public void setFound_errors(String found_errors) {
         this.found_errors = found_errors;
+    }
+
+    public List<CarAPK> getCar_apk() {
+        return car_apk;
+    }
+
+    public void setCar_apk(List<CarAPK> car_apk) {
+        this.car_apk = car_apk;
+    }
+
+    public List<ReperationAPK> getReperation_apk() {
+        return reperation_apk;
+    }
+
+    public void setApk_reperation(List<ReperationAPK> reperation_apk) {
+        this.reperation_apk = reperation_apk;
+    }
+
+    public List<APKMechanic> getApk_mechanic() {
+        return apk_mechanic;
+    }
+
+    public void setApk_mechanic(List<APKMechanic> apk_mechanic) {
+        this.apk_mechanic = apk_mechanic;
     }
 }

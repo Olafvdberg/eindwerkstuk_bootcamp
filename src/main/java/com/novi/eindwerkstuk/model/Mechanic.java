@@ -1,6 +1,9 @@
 package com.novi.eindwerkstuk.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "mechanics")
@@ -15,6 +18,10 @@ public class Mechanic {
 
     @Column(length = 80)
     private String last_name;
+
+    @OneToMany(mappedBy = "mechanic")
+    @JsonIgnoreProperties("mechanic")
+    List<APKMechanic> apk_mechanic;
 
     //getters and setters
 
@@ -40,5 +47,13 @@ public class Mechanic {
 
     public void setLast_name(String last_name) {
         this.last_name = last_name;
+    }
+
+    public List<APKMechanic> getApk_mechanic() {
+        return apk_mechanic;
+    }
+
+    public void setApk_mechanic(List<APKMechanic> apk_mechanic) {
+        this.apk_mechanic = apk_mechanic;
     }
 }
