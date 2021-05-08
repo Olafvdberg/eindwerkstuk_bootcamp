@@ -1,6 +1,7 @@
 package com.novi.eindwerkstuk.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.springframework.http.converter.json.GsonBuilderUtils;
 
 import javax.persistence.*;
 import java.util.List;
@@ -11,7 +12,7 @@ public class Customer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long customer_id;
+    private long id;
 
     @Column(length = 80, nullable = false)
     private String voornaam;
@@ -36,7 +37,7 @@ public class Customer {
     public Customer() {
     }
 
-    public Customer(long customer_id, String voornaam, String achternaam, String emailadres, String adres, String telefoonnummer) {
+    public Customer(long id, String voornaam, String achternaam, String emailadres, String adres, String telefoonnummer) {
         this.voornaam = voornaam;
         this.achternaam = achternaam;
         this.emailadres = emailadres;
@@ -46,12 +47,12 @@ public class Customer {
 
     // getters and setters
 
-    public long getCustomer_id() {
-        return customer_id;
+    public long getid() {
+        return id;
     }
 
-    public void setCustomer_id(long customer_id) {
-        this.customer_id = customer_id;
+    public void setid(long customer_id) {
+        this.id = customer_id;
     }
 
     public String getVoornaam() {
@@ -92,14 +93,6 @@ public class Customer {
 
     public void setTelefoonnummer(String telefoonnummer) {
         this.telefoonnummer = telefoonnummer;
-    }
-
-    public List<CustomerCar> getCustomer_car() {
-        return customer_car;
-    }
-
-    public void setCustomer_car(List<CustomerCar> customer_car) {
-        this.customer_car = customer_car;
     }
 }
 

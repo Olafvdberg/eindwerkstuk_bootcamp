@@ -24,12 +24,6 @@ public class ReperationAction {
     @JsonIgnoreProperties("reperation_action")
     private Action action;
 
-    @Column
-    private String used_action;
-
-    @Column
-    private float price_used_action;
-
     //getters and setters
 
     public long getId() {
@@ -54,21 +48,5 @@ public class ReperationAction {
 
     public void setAction(Action action) {
         this.action = action;
-    }
-
-    public String getUsed_action() {
-        return used_action;
-    }
-
-    public void setUsed_action(String used_action) {
-        this.used_action = used_action;
-    }
-
-    public float getPrice_used_action() {
-        return price_used_action;
-    }
-
-    public void setPrice_used_action(float price_used_action) {
-        this.price_used_action = price_used_action;
     }
 }

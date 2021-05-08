@@ -12,7 +12,7 @@ public class Car {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long car_id;
+    private long id;
 
     @Column(length = 80)
     private String brand;
@@ -30,19 +30,15 @@ public class Car {
     @JsonIgnoreProperties("car")
     List<CustomerCar> customer_car;
 
-    @OneToMany(mappedBy = "car")
-    @JsonIgnoreProperties("car")
-    List<CarAPK> car_apk;
-
     //getters and setters
 
 
-    public long getCar_id() {
-        return car_id;
+    public long getid() {
+        return id;
     }
 
-    public void setCar_id(long car_id) {
-        this.car_id = car_id;
+    public void setid(long car_id) {
+        this.id = id;
     }
 
     public String getBrand() {
@@ -83,13 +79,5 @@ public class Car {
 
     public void setCustomer_car(List<CustomerCar> customer_car) {
         this.customer_car = customer_car;
-    }
-
-    public List<CarAPK> getCar_apk() {
-        return car_apk;
-    }
-
-    public void setCar_apk(List<CarAPK> car_apk) {
-        this.car_apk = car_apk;
     }
 }

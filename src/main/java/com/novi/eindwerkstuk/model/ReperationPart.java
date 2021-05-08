@@ -24,12 +24,6 @@ public class ReperationPart {
     @JsonIgnoreProperties("reperation_part")
     private Part part;
 
-    @Column
-    private String used_part;
-
-    @Column
-    private float price_used_part;
-
     //getters and setters
 
     public long getId() {
@@ -54,21 +48,5 @@ public class ReperationPart {
 
     public void setPart(Part part) {
         this.part = part;
-    }
-
-    public String getUsed_part() {
-        return used_part;
-    }
-
-    public void setUsed_part(String used_part) {
-        this.used_part = used_part;
-    }
-
-    public float getPrice_used_part() {
-        return price_used_part;
-    }
-
-    public void setPrice_used_part(float price_used_part) {
-        this.price_used_part = price_used_part;
     }
 }

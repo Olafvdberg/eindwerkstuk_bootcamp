@@ -19,6 +19,12 @@ public class Action {
     @Column(length = 80)
     private float action_price;
 
+    @Column(length = 80)
+    private String action_used_name;
+
+    @Column(length = 80)
+    private float action_used_price;
+
     @OneToMany(mappedBy = "action")
     @JsonIgnoreProperties("action")
     List<ReperationAction> reperation_action;
@@ -47,6 +53,22 @@ public class Action {
 
     public void setAction_price(float action_price) {
         this.action_price = action_price;
+    }
+
+    public String getAction_used_name() {
+        return action_used_name;
+    }
+
+    public void setAction_used_name(String action_used_name) {
+        this.action_used_name = action_used_name;
+    }
+
+    public float getAction_used_price() {
+        return action_used_price;
+    }
+
+    public void setAction_used_price(float action_used_price) {
+        this.action_used_price = action_used_price;
     }
 
     public List<ReperationAction> getReperation_action() {

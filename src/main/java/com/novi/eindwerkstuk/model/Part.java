@@ -19,6 +19,12 @@ public class Part {
     @Column(length = 80)
     private float part_price;
 
+    @Column(length = 80)
+    private String part_used_name;
+
+    @Column(length = 80)
+    private float part_price_name;
+
     @OneToMany(mappedBy = "part")
     @JsonIgnoreProperties("part")
     List<ReperationPart> reperation_part;
