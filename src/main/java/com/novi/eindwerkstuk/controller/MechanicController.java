@@ -17,6 +17,11 @@ public class MechanicController {
     @Autowired
     MechanicService mechanicService;
 
+    @GetMapping(value = "/mechanic")
+    public ResponseEntity<Object> getMechanic() {
+        return ResponseEntity.ok().body(mechanicService.getAllMechanics());
+    }
+
     @GetMapping(value = "/mechanic/{id}")
     public ResponseEntity<Object> getMechanic(@PathVariable("id") Integer id) {
         return new ResponseEntity<>(mechanicService.getMechanicById(id), HttpStatus.OK);

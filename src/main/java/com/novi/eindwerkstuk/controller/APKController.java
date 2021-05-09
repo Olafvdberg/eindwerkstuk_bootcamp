@@ -18,6 +18,11 @@ public class APKController {
     APKService apkService;
 
     @GetMapping(value = "/APK")
+    public ResponseEntity<Object> getAPK() {
+        return ResponseEntity.ok().body(apkService.getAllAPK());
+    }
+
+    @GetMapping(value = "/APK/{id}")
     public ResponseEntity<Object> getAPK(@PathVariable("id") Integer id) {
         return new ResponseEntity<>(apkService.getAPKById(id), HttpStatus.OK);
     }

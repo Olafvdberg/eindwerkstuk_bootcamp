@@ -1,17 +1,25 @@
 package com.novi.eindwerkstuk.service;
 
 import com.novi.eindwerkstuk.exception.RecordNotFoundException;
+import com.novi.eindwerkstuk.model.Action;
 import com.novi.eindwerkstuk.model.Car;
 import com.novi.eindwerkstuk.model.Customer;
 import com.novi.eindwerkstuk.repository.CarRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CarServiceImpl implements CarService{
 
     @Autowired
     CarRepository carRepository;
+
+    @Override
+    public List<Car> getAllCars(){
+        return carRepository.findAll();
+    }
 
     @Override
     public Car getCarById(long id) {

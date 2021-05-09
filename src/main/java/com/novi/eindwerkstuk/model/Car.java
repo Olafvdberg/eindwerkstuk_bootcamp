@@ -37,11 +37,10 @@ public class Car implements Serializable {
 
     }
 
-    public Car(String brand, String type, String license_plate, String car_paper) {
+    public Car(String brand, String type, String license_plate) {
         this.brand = brand;
         this.type = type;
         this.license_plate = license_plate;
-        this.car_paper = car_paper;
     }
 
     //getters and setters

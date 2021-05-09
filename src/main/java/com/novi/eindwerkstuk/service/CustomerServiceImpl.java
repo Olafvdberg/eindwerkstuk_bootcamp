@@ -1,16 +1,24 @@
 package com.novi.eindwerkstuk.service;
 
 import com.novi.eindwerkstuk.exception.RecordNotFoundException;
+import com.novi.eindwerkstuk.model.Action;
 import com.novi.eindwerkstuk.model.Customer;
 import com.novi.eindwerkstuk.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class CustomerServiceImpl implements CustomerService{
 
     @Autowired
     CustomerRepository customerRepository;
+
+    @Override
+    public List<Customer> getAllCustomers(){
+        return customerRepository.findAll();
+    }
 
     @Override
     public Customer getCustomerById(long id) {

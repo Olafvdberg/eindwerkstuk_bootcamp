@@ -2,15 +2,23 @@ package com.novi.eindwerkstuk.service;
 
 import com.novi.eindwerkstuk.exception.RecordNotFoundException;
 import com.novi.eindwerkstuk.model.APK;
+import com.novi.eindwerkstuk.model.Action;
 import com.novi.eindwerkstuk.repository.APKRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class APKServiceImpl implements APKService{
 
     @Autowired
     APKRepository apkRepository;
+
+    @Override
+    public List<APK> getAllAPK(){
+        return apkRepository.findAll();
+    }
 
     @Override
     public APK getAPKById(long id) {

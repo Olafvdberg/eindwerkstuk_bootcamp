@@ -1,15 +1,23 @@
 package com.novi.eindwerkstuk.service;
 
 import com.novi.eindwerkstuk.exception.RecordNotFoundException;
+import com.novi.eindwerkstuk.model.Action;
 import com.novi.eindwerkstuk.model.Part;
 import com.novi.eindwerkstuk.repository.PartRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PartServiceImpl implements PartService{
     @Autowired
     PartRepository partRepository;
+
+    @Override
+    public List<Part> getAllParts(){
+        return partRepository.findAll();
+    }
 
     @Override
     public Part getPartById(long id) {

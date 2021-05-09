@@ -1,9 +1,12 @@
 package com.novi.eindwerkstuk.service;
 
+import com.novi.eindwerkstuk.model.Action;
 import com.novi.eindwerkstuk.model.Customer;
 
-public interface CustomerService {
+import java.util.List;
 
+public interface CustomerService {
+    List<Customer> getAllCustomers();
     Customer getCustomerById(long id);
     long addCustomer(Customer customer);
     void deleteCustomer(long id);

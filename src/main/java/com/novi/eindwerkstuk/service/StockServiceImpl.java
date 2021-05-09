@@ -1,15 +1,23 @@
 package com.novi.eindwerkstuk.service;
 
 import com.novi.eindwerkstuk.exception.RecordNotFoundException;
+import com.novi.eindwerkstuk.model.Action;
 import com.novi.eindwerkstuk.model.Stock;
 import com.novi.eindwerkstuk.repository.StockRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class StockServiceImpl implements StockService{
     @Autowired
     StockRepository stockRepository;
+
+    @Override
+    public List<Stock> getAllStocks(){
+        return stockRepository.findAll();
+    }
 
     @Override
     public Stock getStockById(long id) {

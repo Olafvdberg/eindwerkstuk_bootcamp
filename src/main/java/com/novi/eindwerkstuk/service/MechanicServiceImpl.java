@@ -1,15 +1,23 @@
 package com.novi.eindwerkstuk.service;
 
 import com.novi.eindwerkstuk.exception.RecordNotFoundException;
+import com.novi.eindwerkstuk.model.Action;
 import com.novi.eindwerkstuk.model.Mechanic;
 import com.novi.eindwerkstuk.repository.MechanicRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class MechanicServiceImpl implements MechanicService{
     @Autowired
     MechanicRepository mechanicRepository;
+
+    @Override
+    public List<Mechanic> getAllMechanics(){
+        return mechanicRepository.findAll();
+    }
 
     @Override
     public Mechanic getMechanicById(long id) {

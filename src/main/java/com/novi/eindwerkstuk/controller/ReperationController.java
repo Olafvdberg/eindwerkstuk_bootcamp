@@ -5,6 +5,7 @@ import com.novi.eindwerkstuk.service.ReperationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -17,9 +18,19 @@ public class ReperationController {
     @Autowired
     ReperationService reperationService;
 
+    @GetMapping(value = "/reperation")
+    public ResponseEntity<Object> getReperation() {
+        return ResponseEntity.ok().body(reperationService.getAllReperations());
+    }
+
     @GetMapping(value = "/reperation/{id}")
     public ResponseEntity<Object> getReperation(@PathVariable("id") Integer id) {
         return new ResponseEntity<>(reperationService.getReperationById(id), HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/reperation{id}")
+    public ResponseEntity<Object> getReperation(@RequestParam(required = false) String status) {
+        return new ResponseEntity<>(reperationService.getReperationByReperation(status), HttpStatus.OK);
     }
 
     @PostMapping(value = "/reperation")

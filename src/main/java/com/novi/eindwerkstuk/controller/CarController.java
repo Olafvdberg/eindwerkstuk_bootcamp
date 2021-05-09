@@ -23,6 +23,11 @@ public class CarController {
     @Autowired
     private CarRepository carRepository;
 
+    @GetMapping(value = "/car")
+    public ResponseEntity<Object> getCar() {
+        return ResponseEntity.ok().body(carService.getAllCars());
+    }
+
     @GetMapping(value = "/car/{id}")
     public ResponseEntity<Object> getCar(@PathVariable("id") Integer id) {
         return new ResponseEntity<>(carService.getCarById(id), HttpStatus.OK);

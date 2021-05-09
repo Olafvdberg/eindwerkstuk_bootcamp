@@ -17,7 +17,7 @@ public class Reperation {
     private String reperation_date;
 
     @Column(length = 80)
-    private String to_do_reperation;
+    private String status;
 
     @OneToMany(mappedBy = "reperation")
     @JsonIgnoreProperties("reperation")
@@ -30,6 +30,14 @@ public class Reperation {
     @OneToMany(mappedBy = "reperation")
     @JsonIgnoreProperties("reperation")
     List<ReperationAction> reperation_action;
+
+    //contructor
+
+    public Reperation(String reperation_date, String status) {
+        this.reperation_date = reperation_date;
+        this.status = status;
+    }
+
 
     //getters and setters
 
@@ -49,12 +57,12 @@ public class Reperation {
         this.reperation_date = reperation_date;
     }
 
-    public String getTo_do_reperation() {
-        return to_do_reperation;
+    public String getStatus() {
+        return status;
     }
 
-    public void setTo_do_reperation(String to_do_reperation) {
-        this.to_do_reperation = to_do_reperation;
+    public void setStatus(String to_do_reperation) {
+        this.status = to_do_reperation;
     }
 
     public List<ReperationAPK> getReperation_apk() {

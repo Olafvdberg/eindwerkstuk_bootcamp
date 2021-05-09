@@ -17,6 +17,11 @@ public class ActionController {
     @Autowired
     ActionService actionService;
 
+    @GetMapping(value = "/action")
+    public ResponseEntity<Object> getAction() {
+        return ResponseEntity.ok().body(actionService.getAllActions());
+    }
+
     @GetMapping(value = "/action/{id}")
     public ResponseEntity<Object> getAction(@PathVariable("id") Integer id) {
         return new ResponseEntity<>(actionService.getActionById(id), HttpStatus.OK);

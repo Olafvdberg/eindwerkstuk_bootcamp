@@ -17,6 +17,11 @@ public class PartController {
     @Autowired
     PartService partService;
 
+    @GetMapping(value = "/part")
+    public ResponseEntity<Object> getPart() {
+        return ResponseEntity.ok().body(partService.getAllParts());
+    }
+
     @GetMapping(value = "/part/{id}")
     public ResponseEntity<Object> getPart(@PathVariable("id") Integer id) {
         return new ResponseEntity<>(partService.getPartById(id), HttpStatus.OK);

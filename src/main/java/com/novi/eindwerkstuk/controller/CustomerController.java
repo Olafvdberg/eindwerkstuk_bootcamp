@@ -17,6 +17,11 @@ public class CustomerController {
     @Autowired
     CustomerService customerService;
 
+    @GetMapping(value = "/customer")
+    public ResponseEntity<Object> getCustomer() {
+        return ResponseEntity.ok().body(customerService.getAllCustomers());
+    }
+
     @GetMapping(value = "/customer/{id}")
     public ResponseEntity<Object> getCustomer(@PathVariable("id") Integer id) {
         return new ResponseEntity<>(customerService.getCustomerById(id), HttpStatus.OK);

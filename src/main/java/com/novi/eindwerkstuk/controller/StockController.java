@@ -16,6 +16,11 @@ public class StockController {
     @Autowired
     StockService stockService;
 
+    @GetMapping(value = "/stock")
+    public ResponseEntity<Object> getStock() {
+        return ResponseEntity.ok().body(stockService.getAllStocks());
+    }
+
     @GetMapping(value = "/stock/{id}")
     public ResponseEntity<Object> getStock(@PathVariable("id") Integer id) {
         return new ResponseEntity<>(stockService.getStockById(id), HttpStatus.OK);

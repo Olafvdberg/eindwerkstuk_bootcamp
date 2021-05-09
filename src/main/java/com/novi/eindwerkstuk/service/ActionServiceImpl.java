@@ -6,11 +6,19 @@ import com.novi.eindwerkstuk.repository.ActionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
+import java.util.List;
+
 @Service
 public class ActionServiceImpl implements ActionService{
 
     @Autowired
     ActionRepository actionRepository;
+
+    @Override
+    public List<Action> getAllActions(){
+        return actionRepository.findAll();
+    }
 
     @Override
     public Action getActionById(long id) {

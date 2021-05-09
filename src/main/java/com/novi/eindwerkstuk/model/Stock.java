@@ -26,6 +26,15 @@ public class Stock {
     @JsonIgnoreProperties("stock")
     List<PartStock> part_stock;
 
+    //constructor
+
+    public Stock(String part_name_stock, float part_price_stock, int amount_in_stock) {
+        this.part_name_stock = part_name_stock;
+        this.part_price_stock = part_price_stock;
+        this.amount_in_stock = amount_in_stock;
+    }
+
+
     //getters and setters
 
     public long getStock_id() {

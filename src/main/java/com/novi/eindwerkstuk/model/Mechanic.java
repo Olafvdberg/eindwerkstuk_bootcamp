@@ -23,6 +23,11 @@ public class Mechanic {
     @JsonIgnoreProperties("mechanic")
     List<APKMechanic> apk_mechanic;
 
+    public Mechanic(String first_name, String last_name) {
+        this.first_name = first_name;
+        this.last_name = last_name;
+    }
+
     //getters and setters
 
     public long getMechanic_id() {
