@@ -3,11 +3,12 @@ package com.novi.eindwerkstuk.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
 @Table(name = "parts")
-public class Part {
+public class Part implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,6 +33,20 @@ public class Part {
     @OneToMany(mappedBy = "part")
     @JsonIgnoreProperties("part")
     List<PartStock> part_stock;
+
+    //constructor
+
+    public Part() {
+
+    }
+
+    public Part(String part_name, float part_price, String part_used_name, float part_price_name) {
+        this.part_name = part_name;
+        this.part_price = part_price;
+        this.part_used_name = part_used_name;
+        this.part_price_name = part_price_name;
+    }
+
 
     //getters and setters
 
@@ -73,5 +88,21 @@ public class Part {
 
     public void setPart_stock(List<PartStock> part_stock) {
         this.part_stock = part_stock;
+    }
+
+    public String getPart_used_name() {
+        return part_used_name;
+    }
+
+    public void setPart_used_name(String part_used_name) {
+        this.part_used_name = part_used_name;
+    }
+
+    public float getPart_price_name() {
+        return part_price_name;
+    }
+
+    public void setPart_price_name(float part_price_name) {
+        this.part_price_name = part_price_name;
     }
 }

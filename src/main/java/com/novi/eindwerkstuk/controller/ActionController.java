@@ -42,7 +42,7 @@ public class ActionController {
     }
 
     @PutMapping(value = "/action/{id}")
-    public ResponseEntity<Object> updateCustomer(@PathVariable("id") Integer id, @RequestBody Action action) {
+    public ResponseEntity<Object> updateAction(@PathVariable("id") Integer id, @RequestBody Action action) {
         actionService.updateAction(id, action);
         return new ResponseEntity<>("Record updated", HttpStatus.NO_CONTENT);
     }

@@ -4,11 +4,12 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.http.converter.json.GsonBuilderUtils;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
 @Table(name = "customers")
-public class Customer {
+public class Customer implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,10 +35,12 @@ public class Customer {
     List<CustomerCar> customer_car;
 
     // constructors
-    public Customer() {
+
+    public Customer(){
+
     }
 
-    public Customer(long id, String voornaam, String achternaam, String emailadres, String adres, String telefoonnummer) {
+    public Customer(String voornaam, String achternaam, String emailadres, String adres, String telefoonnummer) {
         this.voornaam = voornaam;
         this.achternaam = achternaam;
         this.emailadres = emailadres;

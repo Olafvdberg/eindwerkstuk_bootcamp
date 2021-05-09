@@ -3,11 +3,12 @@ package com.novi.eindwerkstuk.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
 @Table (name = "actions")
-public class Action {
+public class Action implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,6 +29,20 @@ public class Action {
     @OneToMany(mappedBy = "action")
     @JsonIgnoreProperties("action")
     List<ReperationAction> reperation_action;
+
+    //constructor
+
+    public Action() {
+
+    }
+
+    public Action(String action_name, float action_price, String action_used_name, float action_used_price) {
+        this.action_name = action_name;
+        this.action_price = action_price;
+        this.action_used_name = action_used_name;
+        this.action_used_price = action_used_price;
+    }
+
 
     //getters and setters
 

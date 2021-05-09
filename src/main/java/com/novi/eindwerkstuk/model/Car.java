@@ -4,11 +4,12 @@ package com.novi.eindwerkstuk.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
 @Table(name = "car")
-public class Car {
+public class Car implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,6 +30,12 @@ public class Car {
     @OneToMany(mappedBy = "car")
     @JsonIgnoreProperties("car")
     List<CustomerCar> customer_car;
+
+    //constructor
+
+    public Car() {
+
+    }
 
     public Car(String brand, String type, String license_plate, String car_paper) {
         this.brand = brand;

@@ -3,11 +3,12 @@ package com.novi.eindwerkstuk.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
 @Table(name = "APK")
-public class APK {
+public class APK implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,6 +23,9 @@ public class APK {
     @Column(length = 80)
     private String found_errors;
 
+    @Column(length = 80)
+    private long apk_price;
+
     @OneToMany(mappedBy = "apk")
     @JsonIgnoreProperties("apk")
     List<CarAPK> car_apk;
@@ -33,6 +37,19 @@ public class APK {
     @OneToMany(mappedBy = "apk")
     @JsonIgnoreProperties("apk")
     List<APKMechanic> apk_mechanic;
+
+    //constructor
+
+    public APK() {
+
+    }
+
+    public APK(String apk_date, String apk_status, String found_errors, long apk_price) {
+        this.apk_date = apk_date;
+        this.apk_status = apk_status;
+        this.found_errors = found_errors;
+        this.apk_price = apk_price;
+    }
 
     //getters and setters
     public long getApk_id() {
@@ -89,5 +106,13 @@ public class APK {
 
     public void setApk_mechanic(List<APKMechanic> apk_mechanic) {
         this.apk_mechanic = apk_mechanic;
+    }
+
+    public long getApk_price() {
+        return apk_price;
+    }
+
+    public void setApk_price(long apk_price) {
+        this.apk_price = apk_price;
     }
 }
