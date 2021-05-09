@@ -2,6 +2,7 @@ package com.novi.eindwerkstuk.controller;
 
 import com.novi.eindwerkstuk.model.Car;
 import com.novi.eindwerkstuk.model.Customer;
+import com.novi.eindwerkstuk.repository.CarRepository;
 import com.novi.eindwerkstuk.service.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,21 +19,17 @@ public class CarController {
     @Autowired
     CarService carService;
 
+    @Autowired
+    private CarRepository carRepository;
+
     @GetMapping(value = "/car/{id}")
     public ResponseEntity<Object> getCar(@PathVariable("id") Integer id) {
         return new ResponseEntity<>(carService.getCarById(id), HttpStatus.OK);
     }
 
     @PostMapping(value = "car")
-    public ResponseEntity<Object> addCar(@RequestBody Car car) {
-        long newId = carService.addCar(car);
-
-        URI location = ServletUriComponentsBuilder.fromCurrentRequest()
-                .path("/{id}")
-                .buildAndExpand(newId)
-                .toUri();
-
-        return ResponseEntity.created(location).build();
+    public Car addCar(@RequestBody Car car) {
+        return carRepository.save(car);
     }
 
     @DeleteMapping(value = "/car/{id}")

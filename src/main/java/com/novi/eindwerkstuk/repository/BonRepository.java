@@ -1,16 +1,12 @@
 package com.novi.eindwerkstuk.repository;
 
 import com.novi.eindwerkstuk.model.Bon;
-import org.aspectj.apache.bcel.util.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-public interface BonRepository extends Repository {
-    List<Bon> findCar(String type);
-
-
-//    @Query(
-//            value = "SELECT * FROM cars ")
-//    public List<Bon> FindAllWithDescriptionQuery();
+@Repository
+public interface BonRepository extends JpaRepository<Bon, Long> {
 }

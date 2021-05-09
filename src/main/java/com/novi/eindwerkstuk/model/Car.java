@@ -7,7 +7,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "cars")
+@Table(name = "car")
 public class Car {
 
     @Id
@@ -29,6 +29,13 @@ public class Car {
     @OneToMany(mappedBy = "car")
     @JsonIgnoreProperties("car")
     List<CustomerCar> customer_car;
+
+    public Car(String brand, String type, String license_plate, String car_paper) {
+        this.brand = brand;
+        this.type = type;
+        this.license_plate = license_plate;
+        this.car_paper = car_paper;
+    }
 
     //getters and setters
 
