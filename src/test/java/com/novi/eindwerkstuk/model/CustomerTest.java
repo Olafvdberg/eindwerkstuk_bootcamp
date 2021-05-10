@@ -15,17 +15,17 @@ class CustomerTest {
     }
 
     @Test
-    void testCustomer_voornaam() {
-        String expectedCustomer_voornaam= "olaf";
-        String actualCustomer_voornaam = this.customer.getVoornaam();
-        assertEquals(expectedCustomer_voornaam, actualCustomer_voornaam);
+    void testCustomer_first_name() {
+        String expectedCustomer_first_name= "olaf";
+        String actualCustomer_first_name = this.customer.getFirst_name();
+        assertEquals(expectedCustomer_first_name, actualCustomer_first_name);
     }
 
     @Test
-    void testCustomer_achternaam() {
-        String expectedCustomer_achternaam= "van den berg";
-        String actualCustomer_achternaam = this.customer.getAchternaam();
-        assertEquals(expectedCustomer_achternaam, actualCustomer_achternaam);
+    void testCustomer_last_name() {
+        String expectedCustomer_last_name= "van den berg";
+        String actualCustomer_last_name = this.customer.getLast_name();
+        assertEquals(expectedCustomer_last_name, actualCustomer_last_name);
     }
 
     @Test
@@ -43,10 +43,10 @@ class CustomerTest {
     }
 
     @Test
-    void testCustomer_telefoonnummer() {
-        String expectedCustomer_telefoonnummer= "0658982145";
-        String actualCustomer_telefoonnummer = this.customer.getTelefoonnummer();
-        assertEquals(expectedCustomer_telefoonnummer, actualCustomer_telefoonnummer);
+    void testCustomer_phonenumber() {
+        String expectedCustomer_phonenumber= "0658982145";
+        String actualCustomer_phonenumber = this.customer.getPhonenumber();
+        assertEquals(expectedCustomer_phonenumber, actualCustomer_phonenumber);
     }
 
 }

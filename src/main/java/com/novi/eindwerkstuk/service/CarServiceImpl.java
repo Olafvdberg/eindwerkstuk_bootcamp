@@ -54,7 +54,6 @@ public class CarServiceImpl implements CarService{
             existingCar.setBrand(car.getBrand());
             existingCar.setType(car.getType());
             existingCar.setLicense_plate(car.getLicense_plate());
-            existingCar.setCar_paper(car.getCar_paper());
         }
         else {
             throw new RecordNotFoundException();

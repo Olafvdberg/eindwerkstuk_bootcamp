@@ -16,10 +16,10 @@ public class Customer implements Serializable {
     private long id;
 
     @Column(length = 80, nullable = false)
-    private String voornaam;
+    private String first_name;
 
     @Column(length = 80, nullable = false)
-    private String achternaam;
+    private String last_name;
 
     @Column(length = 80, nullable = false)
     private String emailadres;
@@ -28,7 +28,7 @@ public class Customer implements Serializable {
     private String adres;
 
     @Column(length = 16, nullable = false)
-    private String telefoonnummer;
+    private String phonenumber;
 
     @OneToMany(mappedBy = "customer")
     @JsonIgnoreProperties("customer")
@@ -40,12 +40,12 @@ public class Customer implements Serializable {
 
     }
 
-    public Customer(String voornaam, String achternaam, String emailadres, String adres, String telefoonnummer) {
-        this.voornaam = voornaam;
-        this.achternaam = achternaam;
+    public Customer(String first_name, String last_name, String emailadres, String adres, String phonenumber) {
+        this.first_name = first_name;
+        this.last_name = last_name;
         this.emailadres = emailadres;
         this.adres = adres;
-        this.telefoonnummer = telefoonnummer;
+        this.phonenumber = phonenumber;
     }
 
     // getters and setters
@@ -58,20 +58,20 @@ public class Customer implements Serializable {
         this.id = customer_id;
     }
 
-    public String getVoornaam() {
-        return voornaam;
+    public String getFirst_name() {
+        return first_name;
     }
 
-    public void setVoornaam(String voornaam) {
-        this.voornaam = voornaam;
+    public void setFirst_name(String first_name) {
+        this.first_name = first_name;
     }
 
-    public String getAchternaam() {
-        return achternaam;
+    public String getLast_name() {
+        return last_name;
     }
 
-    public void setAchternaam(String achternaam) {
-        this.achternaam = achternaam;
+    public void setLast_name(String last_name) {
+        this.last_name = last_name;
     }
 
     public String getEmailadres() {
@@ -90,12 +90,12 @@ public class Customer implements Serializable {
         this.adres = adres;
     }
 
-    public String getTelefoonnummer() {
-        return telefoonnummer;
+    public String getPhonenumber() {
+        return phonenumber;
     }
 
-    public void setTelefoonnummer(String telefoonnummer) {
-        this.telefoonnummer = telefoonnummer;
+    public void setPhonenumber(String phonenumber) {
+        this.phonenumber = phonenumber;
     }
 }
 

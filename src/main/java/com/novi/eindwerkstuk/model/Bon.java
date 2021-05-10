@@ -17,8 +17,8 @@ public class Bon {
     private Car car;
 
     @OneToOne
-    @JoinColumn(name = "customer_firstname", referencedColumnName = "voornaam")
-    @JoinColumn(name = "customer_lastname", referencedColumnName = "achternaam")
+    @JoinColumn(name = "customer_firstname", referencedColumnName = "first_name")
+    @JoinColumn(name = "customer_lastname", referencedColumnName = "last_name")
     private Customer customer;
 
     @OneToOne

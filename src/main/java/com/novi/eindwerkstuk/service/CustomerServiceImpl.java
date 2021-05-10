@@ -50,11 +50,11 @@ public class CustomerServiceImpl implements CustomerService{
     public void updateCustomer(long id, Customer customer) {
         if (customerRepository.existsById(id)) {
             Customer existingCustomer = customerRepository.findById(id).get();
-            existingCustomer.setVoornaam(customer.getVoornaam());
-            existingCustomer.setAchternaam(customer.getAchternaam());
+            existingCustomer.setFirst_name(customer.getFirst_name());
+            existingCustomer.setLast_name(customer.getLast_name());
             existingCustomer.setEmailadres(customer.getEmailadres());
             existingCustomer.setAdres(customer.getAdres());
-            existingCustomer.setTelefoonnummer(customer.getTelefoonnummer());
+            existingCustomer.setPhonenumber(customer.getPhonenumber());
         }
         else {
             throw new RecordNotFoundException();

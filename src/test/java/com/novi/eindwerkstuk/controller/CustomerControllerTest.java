@@ -47,7 +47,7 @@ class CustomerControllerTest {
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(1)))
-                .andExpect((ResultMatcher) jsonPath("$[0].customer_voornaam", is(customer.getVoornaam())));
+                .andExpect((ResultMatcher) jsonPath("$[0].customer_first_name", is(customer.getFirst_name())));
 
 
     }
