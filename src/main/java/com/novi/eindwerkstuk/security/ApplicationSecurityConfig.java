@@ -1,10 +1,11 @@
 package com.novi.eindwerkstuk.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.User;
@@ -28,6 +29,14 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
+                .antMatchers("/v1/action/**").hasAnyRole(ApplicationUserRole.ADMIN.name(), ApplicationUserRole.MECHANIC.name())
+                .antMatchers("/v1/part/**").hasAnyRole(ApplicationUserRole.ADMIN.name(), ApplicationUserRole.MECHANIC.name())
+                .antMatchers("/v1/reperation/**").hasAnyRole(ApplicationUserRole.ADMIN.name(), ApplicationUserRole.MECHANIC.name())
+                .antMatchers("/v1/APK/**").hasAnyRole(ApplicationUserRole.ADMIN.name(), ApplicationUserRole.MECHANIC.name())
+                .antMatchers("/v1/customer/**").hasAnyRole(ApplicationUserRole.ADMIN.name(), ApplicationUserRole.MECHANIC.name(), ApplicationUserRole.ADMINISTRATIVEASSISTANT.name())
+                .antMatchers("/v1/car/**").hasAnyRole(ApplicationUserRole.ADMIN.name(), ApplicationUserRole.MECHANIC.name(), ApplicationUserRole.ADMINISTRATIVEASSISTANT.name())
+                .antMatchers("/v1/bon/**").hasAnyRole(ApplicationUserRole.ADMIN.name(), ApplicationUserRole.CASHIER.name())
+                .antMatchers("/v1/stock/**").hasAnyRole(ApplicationUserRole.ADMIN.name(), ApplicationUserRole.BACKOFFICEASSISTANT.name())
                 .anyRequest()
                 .authenticated()
                 .and()
