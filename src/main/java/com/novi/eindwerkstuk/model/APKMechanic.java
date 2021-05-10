@@ -19,9 +19,8 @@ public class APKMechanic {
     private APK apk;
 
     @OneToOne
-    @MapsId("mechanicId")
-    @JoinColumn(name = "mechanic_id")
-    @JsonIgnoreProperties("apk_mechanic")
+    @JoinColumn(name = "mechanic_firstname", referencedColumnName = "first_name")
+    @JoinColumn(name = "mechanic_lastname", referencedColumnName = "last_name")
     private Mechanic mechanic;
 
     //getters and setters

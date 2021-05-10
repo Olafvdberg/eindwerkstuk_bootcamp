@@ -28,7 +28,7 @@ public class Bon {
 
     @OneToOne
     @JoinColumn(name = "part_name", referencedColumnName = "part_used_name")
-    @JoinColumn(name = "part_price", referencedColumnName = "part_price_name")
+    @JoinColumn(name = "part_price", referencedColumnName = "part_used_price")
     private Part part;
 
     @OneToOne

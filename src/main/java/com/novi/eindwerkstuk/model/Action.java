@@ -26,10 +26,6 @@ public class Action implements Serializable {
     @Column(length = 80)
     private float action_used_price;
 
-    @OneToMany(mappedBy = "action")
-    @JsonIgnoreProperties("action")
-    List<ReperationAction> reperation_action;
-
     //constructor
 
     public Action() {
@@ -84,13 +80,5 @@ public class Action implements Serializable {
 
     public void setAction_used_price(float action_used_price) {
         this.action_used_price = action_used_price;
-    }
-
-    public List<ReperationAction> getReperation_action() {
-        return reperation_action;
-    }
-
-    public void setReperation_action(List<ReperationAction> reperation_action) {
-        this.reperation_action = reperation_action;
     }
 }

@@ -12,16 +12,19 @@ public class CarAPK {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @ManyToOne
-    @MapsId("carId")
-    @JoinColumn(name = "car_id")
-    @JsonIgnoreProperties("car_apk")
+    @OneToOne
+    @JoinColumn(name = "car_id", referencedColumnName = "id")
+    @JoinColumn(name = "car_brand", referencedColumnName = "brand")
+    @JoinColumn(name = "car_type", referencedColumnName = "type")
+    @JoinColumn(name = "car_license_plate", referencedColumnName = "license_plate")
     private Car car;
 
-    @ManyToOne
-    @MapsId("apkId")
-    @JoinColumn(name = "apk_id")
-    @JsonIgnoreProperties("car_apk")
+    @OneToOne
+    @JoinColumn(name = "apk_id", referencedColumnName = "apk_id")
+    @JoinColumn(name = "apk_date", referencedColumnName = "apk_date")
+    @JoinColumn(name = "apk_found_errors", referencedColumnName = "found_errors")
+    @JoinColumn(name = "apk_status", referencedColumnName = "apk_status")
+    @JoinColumn(name = "apk_price", referencedColumnName = "apk_price")
     private APK apk;
 
     //getters and setters

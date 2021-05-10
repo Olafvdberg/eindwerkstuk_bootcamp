@@ -12,10 +12,10 @@ public class ReperationAction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @ManyToOne
-    @MapsId("reperationId")
-    @JoinColumn(name = "reperation_id")
-    @JsonIgnoreProperties("reperation_action")
+    @OneToOne
+    @JoinColumn(name = "reperation_id", referencedColumnName = "reperation_id")
+    @JoinColumn(name = "reperation_date", referencedColumnName = "reperation_date")
+    @JoinColumn(name = "reperation_status", referencedColumnName = "status")
     private Reperation reperation;
 
     @ManyToOne

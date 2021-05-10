@@ -26,9 +26,9 @@ public class EindwerkstukApplication {
 		ActionRepository actionRepository =
 				configurableApplicationContext.getBean(ActionRepository.class);
 
-		Car car = new Car("test", "test", "test");
+		Car car = new Car("Fiat", "panda", "41-zt-br");
 		carRepository.save(car);
-		Customer customer = new Customer("henk", "van hooi", "test@hotmail.com", "apeldoorn", "0658987745");
+		Customer customer = new Customer("henk", "van de beek", "test@hotmail.com", "apeldoorn", "0658987745");
 		customerRepository.save(customer);
 		APK apk = new APK("06-05-2021", "afgekeurd", "achterlamp", 45);
 		apkRepository.save(apk);

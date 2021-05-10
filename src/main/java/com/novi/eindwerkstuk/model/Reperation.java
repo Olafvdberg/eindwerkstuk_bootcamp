@@ -23,14 +23,6 @@ public class Reperation {
     @JsonIgnoreProperties("reperation")
     List<ReperationAPK> reperation_apk;
 
-    @OneToMany(mappedBy = "reperation")
-    @JsonIgnoreProperties("reperation")
-    List<ReperationPart> reperation_part;
-
-    @OneToMany(mappedBy = "reperation")
-    @JsonIgnoreProperties("reperation")
-    List<ReperationAction> reperation_action;
-
     //contructor
 
     public Reperation(String reperation_date, String status) {
@@ -73,19 +65,4 @@ public class Reperation {
         this.reperation_apk = apk_reperation;
     }
 
-    public List<ReperationPart> getReperation_part() {
-        return reperation_part;
-    }
-
-    public void setReperation_part(List<ReperationPart> reperation_part) {
-        this.reperation_part = reperation_part;
-    }
-
-    public List<ReperationAction> getReperation_action() {
-        return reperation_action;
-    }
-
-    public void setReperation_action(List<ReperationAction> reperation_action) {
-        this.reperation_action = reperation_action;
-    }
 }

@@ -12,10 +12,11 @@ public class PartStock {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @ManyToOne
-    @MapsId("stockId")
-    @JoinColumn(name = "stock_id")
-    @JsonIgnoreProperties("part_stock")
+    @OneToOne
+    @JoinColumn(name = "stock_id", referencedColumnName = "stock_id")
+    @JoinColumn(name = "part_name_stock", referencedColumnName = "part_name_stock")
+    @JoinColumn(name = "part_price_stock", referencedColumnName = "part_price_stock")
+    @JoinColumn(name = "amount_in_stock", referencedColumnName = "amount_in_stock")
     private Stock stock;
 
     @ManyToOne

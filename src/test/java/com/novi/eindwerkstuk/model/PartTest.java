@@ -38,7 +38,7 @@ class PartTest {
     @Test
     void testPart_price_name() {
         float expectedPart_price_name= 45;
-        float actualPart_price_name = this.part.getPart_price_name();
+        float actualPart_price_name = this.part.getPart_used_price();
         assertEquals(expectedPart_price_name, actualPart_price_name);
     }
 

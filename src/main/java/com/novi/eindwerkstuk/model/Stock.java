@@ -22,10 +22,6 @@ public class Stock {
     @Column(length = 80)
     private int amount_in_stock;
 
-    @OneToMany(mappedBy = "stock")
-    @JsonIgnoreProperties("stock")
-    List<PartStock> part_stock;
-
     //constructor
 
     public Stock(String part_name_stock, float part_price_stock, int amount_in_stock) {
@@ -69,11 +65,4 @@ public class Stock {
         this.amount_in_stock = amount_in_stock;
     }
 
-    public List<PartStock> getPart_stock() {
-        return part_stock;
-    }
-
-    public void setPart_stock(List<PartStock> part_stock) {
-        this.part_stock = part_stock;
-    }
 }

@@ -24,7 +24,7 @@ public class Part implements Serializable {
     private String part_used_name;
 
     @Column(length = 80)
-    private float part_price_name;
+    private float part_used_price;
 
     @OneToMany(mappedBy = "part")
     @JsonIgnoreProperties("part")
@@ -40,11 +40,11 @@ public class Part implements Serializable {
 
     }
 
-    public Part(String part_name, float part_price, String part_used_name, float part_price_name) {
+    public Part(String part_name, float part_price, String part_used_name, float part_used_price) {
         this.part_name = part_name;
         this.part_price = part_price;
         this.part_used_name = part_used_name;
-        this.part_price_name = part_price_name;
+        this.part_used_price = part_used_price;
     }
 
 
@@ -98,11 +98,11 @@ public class Part implements Serializable {
         this.part_used_name = part_used_name;
     }
 
-    public float getPart_price_name() {
-        return part_price_name;
+    public float getPart_used_price() {
+        return part_used_price;
     }
 
-    public void setPart_price_name(float part_price_name) {
-        this.part_price_name = part_price_name;
+    public void setPart_used_price(float part_used_price) {
+        this.part_used_price = part_used_price;
     }
 }

@@ -12,10 +12,12 @@ public class ReperationAPK {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @ManyToOne
-    @MapsId("apkId")
-    @JoinColumn(name = "apk_id")
-    @JsonIgnoreProperties("reperation_apk")
+    @OneToOne
+    @JoinColumn(name = "apk_id", referencedColumnName = "apk_id")
+    @JoinColumn(name = "apk_date", referencedColumnName = "apk_date")
+    @JoinColumn(name = "apk_found_errors", referencedColumnName = "found_errors")
+    @JoinColumn(name = "apk_status", referencedColumnName = "apk_status")
+    @JoinColumn(name = "apk_price", referencedColumnName = "apk_price")
     private APK apk;
 
     @ManyToOne

@@ -28,14 +28,6 @@ public class APK implements Serializable {
 
     @OneToMany(mappedBy = "apk")
     @JsonIgnoreProperties("apk")
-    List<CarAPK> car_apk;
-
-    @OneToMany(mappedBy = "apk")
-    @JsonIgnoreProperties("apk")
-    List<ReperationAPK> reperation_apk;
-
-    @OneToMany(mappedBy = "apk")
-    @JsonIgnoreProperties("apk")
     List<APKMechanic> apk_mechanic;
 
     //constructor
@@ -82,22 +74,6 @@ public class APK implements Serializable {
 
     public void setFound_errors(String found_errors) {
         this.found_errors = found_errors;
-    }
-
-    public List<CarAPK> getCar_apk() {
-        return car_apk;
-    }
-
-    public void setCar_apk(List<CarAPK> car_apk) {
-        this.car_apk = car_apk;
-    }
-
-    public List<ReperationAPK> getReperation_apk() {
-        return reperation_apk;
-    }
-
-    public void setApk_reperation(List<ReperationAPK> reperation_apk) {
-        this.reperation_apk = reperation_apk;
     }
 
     public List<APKMechanic> getApk_mechanic() {
