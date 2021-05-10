@@ -9,8 +9,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.io.File;
+import java.io.IOException;
 import java.net.URI;
 
 @RestController
@@ -31,6 +34,15 @@ public class CarController {
     @GetMapping(value = "/car/{id}")
     public ResponseEntity<Object> getCar(@PathVariable("id") Integer id) {
         return new ResponseEntity<>(carService.getCarById(id), HttpStatus.OK);
+    }
+
+    private static final String storageLocation = "D://duaal leertraject belastingdienst//belastingdienst//eerste jaar//eindopdracht bootcamp";
+
+    @RequestMapping(value = "/car/file-upload", method = RequestMethod.POST)
+    @ResponseBody
+    public String uploadFile(@RequestParam("file") MultipartFile multipartFile) throws IOException {
+        multipartFile.transferTo(new File(storageLocation + multipartFile.getOriginalFilename()));
+        return "File successfully uploaded!";
     }
 
     @PostMapping(value = "car")

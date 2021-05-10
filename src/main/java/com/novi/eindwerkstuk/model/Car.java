@@ -24,9 +24,6 @@ public class Car implements Serializable {
     @Column(length = 10)
     private String license_plate;
 
-    @Column(length = 80)
-    private String car_paper;
-
     @OneToMany(mappedBy = "car")
     @JsonIgnoreProperties("car")
     List<CustomerCar> customer_car;
@@ -76,14 +73,6 @@ public class Car implements Serializable {
 
     public void setLicense_plate(String license_plate) {
         this.license_plate = license_plate;
-    }
-
-    public String getCar_paper() {
-        return car_paper;
-    }
-
-    public void setCar_paper(String car_paper) {
-        this.car_paper = car_paper;
     }
 
     public List<CustomerCar> getCustomer_car() {
